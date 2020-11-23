@@ -13,6 +13,8 @@ txt文件行示例
 最后两位是瑕疵类别
 author：Hongshu Mu
 """
+
+
 def get_need_image_in_txt():
     label_dirs = os.listdir(label_json_path)
     need_fabric_paths = []
@@ -32,10 +34,13 @@ def get_need_image_in_txt():
             target.write(path+'\n')
         target.close()
 
+
 """
 从数据集中提取中数据
 author：Hongshu
 """
+
+
 def save():
     txt_path = '../data/fabric_data/list.txt'
     image_names = []
@@ -79,5 +84,6 @@ def save():
         copyfile(filename1, filename2)
 
 
-# get_need_image_in_txt()
-save()
+if __name__ == "__main__":
+    get_need_image_in_txt()
+    save()
