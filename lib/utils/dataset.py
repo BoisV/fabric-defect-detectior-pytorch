@@ -3,6 +3,7 @@ import os
 from PIL import Image
 from typing import Callable, Optional
 import torch
+import torchvision
 from torchvision.datasets.vision import VisionDataset
 
 
@@ -40,27 +41,20 @@ class FabricDataset(VisionDataset):
             self.root, self.temp_images_list[index]))
         with open(os.path.join(self.root, self.json_images_list[index]), mode='r') as f:
             label_json = json.load(f)
-        origin_h, origin_w = trgt_img.height, trgt_img.width
         label = label_json['flaw_type']
 
-        if self.transform is not None:
-            trgt_img = self.transform(trgt_img)
-            temp_img = self.transform(temp_img)
+        trgt_img = torchvision.transforms.ToTensor()(trgt_img)
+        temp_img = torchvision.transforms.ToTensor()(temp_img)
 
-        h, w = trgt_img.shape[1:]
-        x0 = int(label_json['bbox']['x0'] * w / origin_w)
-        x1 = int(label_json['bbox']['x1'] * w / origin_w)
-        y0 = int(label_json['bbox']['y0'] * h / origin_h)
-        y1 = int(label_json['bbox']['y1'] * h / origin_h)
-        coordinates = torch.as_tensor([x0, y0, x1-x0, y1-y0], dtype=torch.float32)
-
-
-
-        if self.target_transform is not None:
-            trgt_img = self.transform(trgt_img)
-            temp_img = self.transform(temp_img)
-
-        return trgt_img, label, temp_img, coordinates
+        x0 = int(label_json['bbox']['x0'])
+        x1 = int(label_json['bbox']['x1'])
+        y0 = int(label_json['bbox']['y0'])
+        y1 = int(label_json['bbox']['y1'])
+        # return trgt_img, label, temp_img, coordinates
+        xx = trgt_img[:, y0:y1, x0:x1]
+        xt = temp_img[:, y0:y1, x0:x1]
+        
+        return torchvision.transforms.Resize((224, 224))(xx), torchvision.transforms.Resize((224, 224))(xt), label  
 
     def __len__(self) -> int:
         return len(self.trgt_images_list)

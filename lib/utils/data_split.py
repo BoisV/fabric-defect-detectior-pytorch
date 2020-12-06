@@ -1,9 +1,10 @@
 import json
 import os
 from shutil import copyfile
+import numpy as np
 
 
-def read_images_by_cls(root='../../data/fabric_data', classes=[1, 2, 5, 13]):
+def read_images_by_cls(root='../../data/fabric_data', classes=[1, 2, 5, 13], train: float = 0.57):
     """
     获取训练所需的数据集的路径及瑕疵类别，并将类别存入txt文件
     txt文件行示例
@@ -26,18 +27,32 @@ def read_images_by_cls(root='../../data/fabric_data', classes=[1, 2, 5, 13]):
                 need_fabric_paths.append(
                     os.path.join(dir, file[:-5]))
 
-    with open(os.path.join(root, 'list.txt'), mode='w') as target:
-        for path in need_fabric_paths:
-            target.write(path+'\n')
+    idx = np.arange(len(need_fabric_paths))
+    np.random.shuffle(idx)
+    train_idx = idx[:int(len(need_fabric_paths) * train)]
+    test_idx = idx[int(len(need_fabric_paths)*train):]
+
+    with open(os.path.join(root, 'train.txt'), mode='w') as target:
+        for i in train_idx:
+            target.write(need_fabric_paths[i]+'\n')
+        target.close()
+    with open(os.path.join(root, 'test.txt'), mode='w') as target:
+        for i in test_idx:
+            target.write(need_fabric_paths[i]+'\n')
         target.close()
 
 
-def save_images(root='../../data/fabric_data', save_path='../../data/DIY_fabric_data/'):
+def save_images(root='../../data/fabric_data', save_path='../../data/DIY_fabric_data/', train=True):
     """
     从数据集中提取中数据
     author：Hongshu Mu
     """
-    txt_path = os.path.join(root, 'list.txt')
+    if train:
+        txt_path = os.path.join(root, 'train.txt')
+        save_path = os.path.join(save_path, 'train')
+    else:
+        txt_path = os.path.join(root, 'test.txt')
+        save_path = os.path.join(save_path, 'test')
     image_names = []
     with open(txt_path, mode='r') as f:
         while f.readable:
@@ -59,6 +74,11 @@ def save_images(root='../../data/fabric_data', save_path='../../data/DIY_fabric_
         os.makedirs(label_json_path)
 
     for idx, img_path in enumerate(image_names):
+
+        if os.path.getsize(os.path.join(root, 'trgt', (img_path+'.jpg'))) == 0 \
+            or os.path.getsize(os.path.join(root, 'temp', (img_path+'.jpg'))) == 0 \
+            or os.path.getsize(os.path.join(root, 'label_json', (img_path+'.json'))) == 0:
+            continue
 
         origin = os.path.join(root, 'trgt', (img_path+'.jpg'))
         trgt_img_name = os.path.join(trgt_path, ('%05d.jpg' % idx))
@@ -86,8 +106,11 @@ def save_images(root='../../data/fabric_data', save_path='../../data/DIY_fabric_
 def create_diydataset(root='../../data/fabric_data', save='../../data/DIY_fabric_data/'):
     """
     """
-    read_images_by_cls(root=root)
-    save_images(root=root, save_path=save)
+    read_images_by_cls(root=root, classes=[1, 2, 5, 13], train=4.0/7)
+    save_images(
+        root=root, save_path=save, train=True)
+    save_images(
+        root=root, save_path=save, train=False)
 
 
 if __name__ == "__main__":
