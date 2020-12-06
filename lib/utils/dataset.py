@@ -13,7 +13,7 @@ class FabricDataset(VisionDataset):
 
     def __init__(self,
                  root: str,
-                 train, bool=True,
+                 train: bool=True,
                  transform: Optional[Callable] = None,
                  target_trainsform: Optional[Callable] = None
                  ) -> None:
@@ -50,11 +50,15 @@ class FabricDataset(VisionDataset):
         x1 = int(label_json['bbox']['x1'])
         y0 = int(label_json['bbox']['y0'])
         y1 = int(label_json['bbox']['y1'])
-        # return trgt_img, label, temp_img, coordinates
+
+        # xx、xt分别是瑕疵图片和无瑕疵原图的瑕疵区域片段
         xx = trgt_img[:, y0:y1, x0:x1]
         xt = temp_img[:, y0:y1, x0:x1]
-        
-        return torchvision.transforms.Resize((224, 224))(xx), torchvision.transforms.Resize((224, 224))(xt), label  
+
+        xx = torchvision.transforms.Resize((224,224))(xx)
+        xt = torchvision.transforms.Resize((224,224))(xt)
+
+        return xx, xt, label  
 
     def __len__(self) -> int:
         return len(self.trgt_images_list)

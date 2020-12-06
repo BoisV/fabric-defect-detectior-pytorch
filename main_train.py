@@ -32,10 +32,8 @@ if __name__ == "__main__":
                                     transforms.Resize((224, 224)),
                                     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])])
 
-    train = FabricDataset(root='./data/DIY_fabric_data/train/',
-                          train=True, transform=transform)
-    test = FabricDataset(root='./data/DIY_fabric_data/test/',
-                         train=True, transform=transform)
+    train = FabricDataset(root='./data/DIY_fabric_data/train/')
+    test = FabricDataset(root='./data/DIY_fabric_data/test/')
     train = DataLoader(train, batch_size=128, shuffle=True, num_workers=4)
     test = DataLoader(test, batch_size=128, shuffle=True, num_workers=4)
 
