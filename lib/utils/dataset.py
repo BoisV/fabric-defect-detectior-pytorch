@@ -43,21 +43,19 @@ class FabricDataset(VisionDataset):
             label_json = json.load(f)
         label = label_json['flaw_type']
 
-        trgt_img = torchvision.transforms.ToTensor()(trgt_img)
-        temp_img = torchvision.transforms.ToTensor()(temp_img)
-
         x0 = int(label_json['bbox']['x0'])
         x1 = int(label_json['bbox']['x1'])
         y0 = int(label_json['bbox']['y0'])
         y1 = int(label_json['bbox']['y1'])
 
         # xx、xt分别是瑕疵图片和无瑕疵原图的瑕疵区域片段
-        xx = trgt_img[:, y0:y1, x0:x1]
-        xt = temp_img[:, y0:y1, x0:x1]
+        xx = trgt_img.crop((x0, y0, x1, y1))
+        xt = temp_img.crop((x0, y0, x1, y1))
+        xx = torchvision.transforms.Resize((224, 224))(xx)
+        xt = torchvision.transforms.Resize((224, 224))(xt)
 
-        xx = torchvision.transforms.Resize((224,224))(xx)
-        xt = torchvision.transforms.Resize((224,224))(xt)
-
+        xx = torchvision.transforms.ToTensor()(xx)
+        xt = torchvision.transforms.ToTensor()(xt)
         return xx, xt, label  
 
     def __len__(self) -> int:
