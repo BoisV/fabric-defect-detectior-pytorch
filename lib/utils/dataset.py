@@ -1,9 +1,9 @@
 import json
 import os
-from PIL import Image
 from typing import Callable, Optional
-import torch
+
 import torchvision
+from PIL import Image
 from torchvision.datasets.vision import VisionDataset
 
 
@@ -23,6 +23,7 @@ class FabricDataset(VisionDataset):
         self.trgt_images_list = []
         self.temp_images_list = []
         self.json_images_list = []
+        self.transform = transform
         with open(list_file, mode='r') as f:
             while f.readable():
                 line_str = f.readline()
@@ -51,6 +52,10 @@ class FabricDataset(VisionDataset):
         # xx、xt分别是瑕疵图片和无瑕疵原图的瑕疵区域片段
         xx = trgt_img.crop((x0, y0, x1, y1))
         xt = temp_img.crop((x0, y0, x1, y1))
+        
+        xx = self.transform(xx)
+        xt = self.transform(xt)
+
         xx = torchvision.transforms.Resize((224, 224))(xx)
         xt = torchvision.transforms.Resize((224, 224))(xt)
 

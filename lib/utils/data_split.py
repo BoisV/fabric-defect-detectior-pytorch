@@ -1,10 +1,10 @@
 import json
 import os
-from shutil import copyfile
+from shutil import copyfile, rmtree
 import numpy as np
 
 
-def read_images_by_cls(root='../../data/fabric_data', classes=[1, 2, 5, 13], train: float = 0.57):
+def read_images_by_cls(root='../../data/fabric_data', classes=[1, 2, 5, 13], ratio: float = 0.57):
     """
     获取训练所需的数据集的路径及瑕疵类别，并将类别存入txt文件
     txt文件行示例
@@ -16,6 +16,7 @@ def read_images_by_cls(root='../../data/fabric_data', classes=[1, 2, 5, 13], tra
 
     label_dirs = os.listdir(label_json_path)
     need_fabric_paths = []
+    counts = [0 for i in range(0, 30)]
     for dir in label_dirs:
         file_paths = os.listdir(os.path.join(label_json_path, dir))
         for file in file_paths:
@@ -23,14 +24,17 @@ def read_images_by_cls(root='../../data/fabric_data', classes=[1, 2, 5, 13], tra
                 data = json.load(f)
 
             flaw_type = data['flaw_type']
+            counts[flaw_type] += 1
             if flaw_type in classes:
                 need_fabric_paths.append(
                     os.path.join(dir, file[:-5]))
+    for idx, count in enumerate(counts):
+        print(idx, count)
 
     idx = np.arange(len(need_fabric_paths))
     np.random.shuffle(idx)
-    train_idx = idx[:int(len(need_fabric_paths) * train)]
-    test_idx = idx[int(len(need_fabric_paths)*train):]
+    train_idx = idx[:int(len(need_fabric_paths) * ratio)]
+    test_idx = idx[int(len(need_fabric_paths)*ratio):]
 
     with open(os.path.join(root, 'train.txt'), mode='w') as target:
         for i in train_idx:
@@ -76,8 +80,17 @@ def save_images(root='../../data/fabric_data', save_path='../../data/DIY_fabric_
     for idx, img_path in enumerate(image_names):
 
         if os.path.getsize(os.path.join(root, 'trgt', (img_path+'.jpg'))) == 0 \
-            or os.path.getsize(os.path.join(root, 'temp', (img_path+'.jpg'))) == 0 \
-            or os.path.getsize(os.path.join(root, 'label_json', (img_path+'.json'))) == 0:
+                or os.path.getsize(os.path.join(root, 'temp', (img_path+'.jpg'))) == 0 \
+                or os.path.getsize(os.path.join(root, 'label_json', (img_path+'.json'))) == 0:
+            continue
+
+        # 新bug，有的trgt图很大，结果tmp图很小
+        origin = os.path.join(root, 'trgt', (img_path+'.jpg'))
+        s1 = os.path.getsize(origin)
+        origin2 = os.path.join(root, 'temp', (img_path+'.jpg'))
+        s2 = os.path.getsize(origin2)
+        avg = (s1+s2)/2.0
+        if(min(s1/avg, s2/avg) < 0.5):
             continue
 
         origin = os.path.join(root, 'trgt', (img_path+'.jpg'))
@@ -103,15 +116,18 @@ def save_images(root='../../data/fabric_data', save_path='../../data/DIY_fabric_
             f.close()
 
 
-def create_diydataset(root='../../data/fabric_data', save='../../data/DIY_fabric_data/'):
+def createDIYDataset(root='../../data/fabric_data', save='../../data/DIY_fabric_data/', classes=[1, 2, 5, 13], ratio=4.0/7):
     """
     """
-    read_images_by_cls(root=root, classes=[1, 2, 5, 13], train=4.0/7)
-    save_images(
-        root=root, save_path=save, train=True)
-    save_images(
-        root=root, save_path=save, train=False)
+    if os.path.exists(save):
+        print(save, "has existed! Now remove it!")
+        rmtree(save)
+    read_images_by_cls(root=root, classes=classes, ratio=ratio)
+    # save_images(
+    #     root=root, save_path=save, train=True)
+    # save_images(
+    #     root=root, save_path=save, train=False)
 
 
 if __name__ == "__main__":
-    create_diydataset()
+    createDIYDataset(root='../../data/fabric_data_new')
