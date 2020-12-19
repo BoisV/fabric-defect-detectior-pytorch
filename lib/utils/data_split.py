@@ -1,5 +1,6 @@
 import json
 import os
+from os.path import sep
 from shutil import copyfile, rmtree
 import numpy as np
 
@@ -29,7 +30,8 @@ def read_images_by_cls(root='../../data/fabric_data', classes=[1, 2, 5, 13], rat
                 need_fabric_paths.append(
                     os.path.join(dir, file[:-5]))
     for idx, count in enumerate(counts):
-        print(idx, count)
+        print((str(idx) + ':' + str(count)), end=' ')
+    print()
 
     idx = np.arange(len(need_fabric_paths))
     np.random.shuffle(idx)
@@ -123,10 +125,10 @@ def createDIYDataset(root='../../data/fabric_data', save='../../data/DIY_fabric_
         print(save, "has existed! Now remove it!")
         rmtree(save)
     read_images_by_cls(root=root, classes=classes, ratio=ratio)
-    # save_images(
-    #     root=root, save_path=save, train=True)
-    # save_images(
-    #     root=root, save_path=save, train=False)
+    save_images(
+        root=root, save_path=save, train=True)
+    save_images(
+        root=root, save_path=save, train=False)
 
 
 if __name__ == "__main__":

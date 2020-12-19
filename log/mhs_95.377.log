@@ -1,0 +1,134 @@
+[2020-12-19 16:56:32,584][mhs_91.7.py][line:71][INFO] pretrain start training!
+[2020-12-19 16:57:09,913][mhs_91.7.py][line:105][INFO] Epoch:[1/30] batch_idx:8 loss=3.89391 accuracy=0.34900
+[2020-12-19 16:57:18,056][mhs_91.7.py][line:105][INFO] Epoch:[2/30] batch_idx:8 loss=2.15334 accuracy=0.34900
+[2020-12-19 16:57:25,944][mhs_91.7.py][line:105][INFO] Epoch:[3/30] batch_idx:8 loss=1.92766 accuracy=0.34900
+[2020-12-19 16:57:34,065][mhs_91.7.py][line:105][INFO] Epoch:[4/30] batch_idx:8 loss=1.74386 accuracy=0.42877
+[2020-12-19 16:57:42,118][mhs_91.7.py][line:105][INFO] Epoch:[5/30] batch_idx:8 loss=1.68874 accuracy=0.46439
+[2020-12-19 16:57:50,217][mhs_91.7.py][line:105][INFO] Epoch:[6/30] batch_idx:8 loss=1.50406 accuracy=0.59402
+[2020-12-19 16:57:58,207][mhs_91.7.py][line:105][INFO] Epoch:[7/30] batch_idx:8 loss=1.32363 accuracy=0.59829
+[2020-12-19 16:58:06,444][mhs_91.7.py][line:105][INFO] Epoch:[8/30] batch_idx:8 loss=1.24217 accuracy=0.61396
+[2020-12-19 16:58:14,372][mhs_91.7.py][line:105][INFO] Epoch:[9/30] batch_idx:8 loss=1.17883 accuracy=0.64245
+[2020-12-19 16:58:22,473][mhs_91.7.py][line:105][INFO] Epoch:[10/30] batch_idx:8 loss=1.04339 accuracy=0.69373
+[2020-12-19 16:58:30,503][mhs_91.7.py][line:105][INFO] Epoch:[11/30] batch_idx:8 loss=1.00565 accuracy=0.69801
+[2020-12-19 16:58:38,566][mhs_91.7.py][line:105][INFO] Epoch:[12/30] batch_idx:8 loss=0.93263 accuracy=0.69801
+[2020-12-19 16:58:46,512][mhs_91.7.py][line:105][INFO] Epoch:[13/30] batch_idx:8 loss=0.84302 accuracy=0.69516
+[2020-12-19 16:58:54,818][mhs_91.7.py][line:105][INFO] Epoch:[14/30] batch_idx:8 loss=0.91578 accuracy=0.69516
+[2020-12-19 16:59:02,813][mhs_91.7.py][line:105][INFO] Epoch:[15/30] batch_idx:8 loss=0.76833 accuracy=0.72080
+[2020-12-19 16:59:10,985][mhs_91.7.py][line:105][INFO] Epoch:[16/30] batch_idx:8 loss=0.67891 accuracy=0.74074
+[2020-12-19 16:59:18,839][mhs_91.7.py][line:105][INFO] Epoch:[17/30] batch_idx:8 loss=0.66557 accuracy=0.73504
+[2020-12-19 16:59:26,955][mhs_91.7.py][line:105][INFO] Epoch:[18/30] batch_idx:8 loss=0.53630 accuracy=0.73219
+[2020-12-19 16:59:34,990][mhs_91.7.py][line:105][INFO] Epoch:[19/30] batch_idx:8 loss=0.54396 accuracy=0.71795
+[2020-12-19 16:59:43,159][mhs_91.7.py][line:105][INFO] Epoch:[20/30] batch_idx:8 loss=0.47381 accuracy=0.73077
+[2020-12-19 16:59:50,976][mhs_91.7.py][line:105][INFO] Epoch:[21/30] batch_idx:8 loss=0.47464 accuracy=0.70940
+[2020-12-19 16:59:59,448][mhs_91.7.py][line:105][INFO] Epoch:[22/30] batch_idx:8 loss=0.48928 accuracy=0.71225
+[2020-12-19 17:00:07,472][mhs_91.7.py][line:105][INFO] Epoch:[23/30] batch_idx:8 loss=0.45693 accuracy=0.71225
+[2020-12-19 17:00:15,498][mhs_91.7.py][line:105][INFO] Epoch:[24/30] batch_idx:8 loss=0.42112 accuracy=0.73932
+[2020-12-19 17:00:23,566][mhs_91.7.py][line:105][INFO] Epoch:[25/30] batch_idx:8 loss=0.39068 accuracy=0.71652
+[2020-12-19 17:00:31,458][mhs_91.7.py][line:105][INFO] Epoch:[26/30] batch_idx:8 loss=0.33834 accuracy=0.73362
+[2020-12-19 17:00:39,284][mhs_91.7.py][line:105][INFO] Epoch:[27/30] batch_idx:8 loss=0.31490 accuracy=0.73647
+[2020-12-19 17:00:47,618][mhs_91.7.py][line:105][INFO] Epoch:[28/30] batch_idx:8 loss=0.25465 accuracy=0.73504
+[2020-12-19 17:00:55,676][mhs_91.7.py][line:105][INFO] Epoch:[29/30] batch_idx:8 loss=0.29273 accuracy=0.70798
+[2020-12-19 17:01:04,048][mhs_91.7.py][line:105][INFO] Epoch:[30/30] batch_idx:8 loss=0.34168 accuracy=0.70513
+[2020-12-19 17:01:04,886][mhs_91.7.py][line:161][INFO] finetune start training!
+[2020-12-19 17:01:35,304][mhs_91.7.py][line:213][INFO] Epoch:[1/30] batch_idx:5 loss=0.79037 accuracy=0.80779
+[2020-12-19 17:01:35,305][mhs_91.7.py][line:218][INFO] acc:0.80779 save model......
+[2020-12-19 17:01:41,579][mhs_91.7.py][line:213][INFO] Epoch:[2/30] batch_idx:5 loss=0.42411 accuracy=0.84428
+[2020-12-19 17:01:41,580][mhs_91.7.py][line:218][INFO] acc:0.84428 save model......
+[2020-12-19 17:01:47,577][mhs_91.7.py][line:213][INFO] Epoch:[3/30] batch_idx:5 loss=0.29485 accuracy=0.88078
+[2020-12-19 17:01:47,578][mhs_91.7.py][line:218][INFO] acc:0.88078 save model......
+[2020-12-19 17:01:53,814][mhs_91.7.py][line:213][INFO] Epoch:[4/30] batch_idx:5 loss=0.23091 accuracy=0.88078
+[2020-12-19 17:01:59,193][mhs_91.7.py][line:213][INFO] Epoch:[5/30] batch_idx:5 loss=0.12948 accuracy=0.88808
+[2020-12-19 17:01:59,194][mhs_91.7.py][line:218][INFO] acc:0.88808 save model......
+[2020-12-19 17:02:05,197][mhs_91.7.py][line:213][INFO] Epoch:[6/30] batch_idx:5 loss=0.11493 accuracy=0.88564
+[2020-12-19 17:02:10,720][mhs_91.7.py][line:213][INFO] Epoch:[7/30] batch_idx:5 loss=0.21514 accuracy=0.89294
+[2020-12-19 17:02:10,721][mhs_91.7.py][line:218][INFO] acc:0.89294 save model......
+[2020-12-19 17:02:16,991][mhs_91.7.py][line:213][INFO] Epoch:[8/30] batch_idx:5 loss=0.06937 accuracy=0.88808
+[2020-12-19 17:02:22,286][mhs_91.7.py][line:213][INFO] Epoch:[9/30] batch_idx:5 loss=0.03151 accuracy=0.86861
+[2020-12-19 17:02:27,795][mhs_91.7.py][line:213][INFO] Epoch:[10/30] batch_idx:5 loss=0.02069 accuracy=0.89294
+[2020-12-19 17:02:33,156][mhs_91.7.py][line:213][INFO] Epoch:[11/30] batch_idx:5 loss=0.01368 accuracy=0.88078
+[2020-12-19 17:02:38,576][mhs_91.7.py][line:213][INFO] Epoch:[12/30] batch_idx:5 loss=0.03973 accuracy=0.89781
+[2020-12-19 17:02:38,577][mhs_91.7.py][line:218][INFO] acc:0.89781 save model......
+[2020-12-19 17:02:44,816][mhs_91.7.py][line:213][INFO] Epoch:[13/30] batch_idx:5 loss=0.03377 accuracy=0.89051
+[2020-12-19 17:02:50,224][mhs_91.7.py][line:213][INFO] Epoch:[14/30] batch_idx:5 loss=0.03008 accuracy=0.88078
+[2020-12-19 17:02:55,493][mhs_91.7.py][line:213][INFO] Epoch:[15/30] batch_idx:5 loss=0.02425 accuracy=0.86131
+[2020-12-19 17:03:00,889][mhs_91.7.py][line:213][INFO] Epoch:[16/30] batch_idx:5 loss=0.01044 accuracy=0.88078
+[2020-12-19 17:03:06,458][mhs_91.7.py][line:213][INFO] Epoch:[17/30] batch_idx:5 loss=0.00708 accuracy=0.88564
+[2020-12-19 17:03:11,683][mhs_91.7.py][line:213][INFO] Epoch:[18/30] batch_idx:5 loss=0.01637 accuracy=0.89781
+[2020-12-19 17:03:17,102][mhs_91.7.py][line:213][INFO] Epoch:[19/30] batch_idx:5 loss=0.02053 accuracy=0.89051
+[2020-12-19 17:03:22,385][mhs_91.7.py][line:213][INFO] Epoch:[20/30] batch_idx:5 loss=0.01041 accuracy=0.89538
+[2020-12-19 17:03:27,867][mhs_91.7.py][line:213][INFO] Epoch:[21/30] batch_idx:5 loss=0.02593 accuracy=0.91727
+[2020-12-19 17:03:27,868][mhs_91.7.py][line:218][INFO] acc:0.91727 save model......
+[2020-12-19 17:03:33,936][mhs_91.7.py][line:213][INFO] Epoch:[22/30] batch_idx:5 loss=0.01564 accuracy=0.90024
+[2020-12-19 17:03:39,369][mhs_91.7.py][line:213][INFO] Epoch:[23/30] batch_idx:5 loss=0.03980 accuracy=0.88564
+[2020-12-19 17:03:44,865][mhs_91.7.py][line:213][INFO] Epoch:[24/30] batch_idx:5 loss=0.03235 accuracy=0.90998
+[2020-12-19 17:03:50,247][mhs_91.7.py][line:213][INFO] Epoch:[25/30] batch_idx:5 loss=0.01754 accuracy=0.88808
+[2020-12-19 17:03:55,580][mhs_91.7.py][line:213][INFO] Epoch:[26/30] batch_idx:5 loss=0.00386 accuracy=0.89781
+[2020-12-19 17:04:00,918][mhs_91.7.py][line:213][INFO] Epoch:[27/30] batch_idx:5 loss=0.01739 accuracy=0.89051
+[2020-12-19 17:04:06,379][mhs_91.7.py][line:213][INFO] Epoch:[28/30] batch_idx:5 loss=0.01346 accuracy=0.91727
+[2020-12-19 17:04:11,749][mhs_91.7.py][line:213][INFO] Epoch:[29/30] batch_idx:5 loss=0.03250 accuracy=0.90024
+[2020-12-19 17:04:17,154][mhs_91.7.py][line:213][INFO] Epoch:[30/30] batch_idx:5 loss=0.01309 accuracy=0.89051
+[2020-12-19 17:06:29,956][mhs_91.971.py][line:70][INFO] pretrain start training!
+[2020-12-19 17:07:07,524][mhs_91.971.py][line:104][INFO] Epoch:[1/30] batch_idx:8 loss=3.02150 accuracy=0.33903
+[2020-12-19 17:07:15,552][mhs_91.971.py][line:104][INFO] Epoch:[2/30] batch_idx:8 loss=2.00490 accuracy=0.33903
+[2020-12-19 17:07:23,395][mhs_91.971.py][line:104][INFO] Epoch:[3/30] batch_idx:8 loss=1.79330 accuracy=0.41738
+[2020-12-19 17:07:31,432][mhs_91.971.py][line:104][INFO] Epoch:[4/30] batch_idx:8 loss=1.68854 accuracy=0.49858
+[2020-12-19 17:07:39,138][mhs_91.971.py][line:104][INFO] Epoch:[5/30] batch_idx:8 loss=1.48701 accuracy=0.58832
+[2020-12-19 17:07:47,339][mhs_91.971.py][line:104][INFO] Epoch:[6/30] batch_idx:8 loss=1.34159 accuracy=0.62821
+[2020-12-19 17:07:55,387][mhs_91.971.py][line:104][INFO] Epoch:[7/30] batch_idx:8 loss=1.22918 accuracy=0.65100
+[2020-12-19 17:08:03,487][mhs_91.971.py][line:104][INFO] Epoch:[8/30] batch_idx:8 loss=1.13571 accuracy=0.64957
+[2020-12-19 17:08:11,493][mhs_91.971.py][line:104][INFO] Epoch:[9/30] batch_idx:8 loss=1.03151 accuracy=0.67521
+[2020-12-19 17:08:19,662][mhs_91.971.py][line:104][INFO] Epoch:[10/30] batch_idx:8 loss=0.92631 accuracy=0.70228
+[2020-12-19 17:08:27,701][mhs_91.971.py][line:104][INFO] Epoch:[11/30] batch_idx:8 loss=0.84286 accuracy=0.72792
+[2020-12-19 17:08:36,054][mhs_91.971.py][line:104][INFO] Epoch:[12/30] batch_idx:8 loss=0.78117 accuracy=0.73219
+[2020-12-19 17:08:44,183][mhs_91.971.py][line:104][INFO] Epoch:[13/30] batch_idx:8 loss=0.67185 accuracy=0.73362
+[2020-12-19 17:08:52,245][mhs_91.971.py][line:104][INFO] Epoch:[14/30] batch_idx:8 loss=0.65631 accuracy=0.71083
+[2020-12-19 17:08:59,974][mhs_91.971.py][line:104][INFO] Epoch:[15/30] batch_idx:8 loss=0.63942 accuracy=0.74074
+[2020-12-19 17:09:08,004][mhs_91.971.py][line:104][INFO] Epoch:[16/30] batch_idx:8 loss=0.55713 accuracy=0.70798
+[2020-12-19 17:09:16,054][mhs_91.971.py][line:104][INFO] Epoch:[17/30] batch_idx:8 loss=0.49335 accuracy=0.74501
+[2020-12-19 17:09:24,211][mhs_91.971.py][line:104][INFO] Epoch:[18/30] batch_idx:8 loss=0.56559 accuracy=0.69943
+[2020-12-19 17:09:32,143][mhs_91.971.py][line:104][INFO] Epoch:[19/30] batch_idx:8 loss=0.53648 accuracy=0.73789
+[2020-12-19 17:09:40,355][mhs_91.971.py][line:104][INFO] Epoch:[20/30] batch_idx:8 loss=0.44307 accuracy=0.67664
+[2020-12-19 17:09:48,323][mhs_91.971.py][line:104][INFO] Epoch:[21/30] batch_idx:8 loss=0.44364 accuracy=0.73789
+[2020-12-19 17:09:56,505][mhs_91.971.py][line:104][INFO] Epoch:[22/30] batch_idx:8 loss=0.37957 accuracy=0.72792
+[2020-12-19 17:10:04,405][mhs_91.971.py][line:104][INFO] Epoch:[23/30] batch_idx:8 loss=0.38578 accuracy=0.74217
+[2020-12-19 17:10:12,778][mhs_91.971.py][line:104][INFO] Epoch:[24/30] batch_idx:8 loss=0.37485 accuracy=0.73789
+[2020-12-19 17:10:20,933][mhs_91.971.py][line:104][INFO] Epoch:[25/30] batch_idx:8 loss=0.27705 accuracy=0.74359
+[2020-12-19 17:10:28,989][mhs_91.971.py][line:104][INFO] Epoch:[26/30] batch_idx:8 loss=0.42249 accuracy=0.70513
+[2020-12-19 17:10:36,934][mhs_91.971.py][line:104][INFO] Epoch:[27/30] batch_idx:8 loss=0.41527 accuracy=0.72080
+[2020-12-19 17:10:45,219][mhs_91.971.py][line:104][INFO] Epoch:[28/30] batch_idx:8 loss=0.31608 accuracy=0.72650
+[2020-12-19 17:10:52,934][mhs_91.971.py][line:104][INFO] Epoch:[29/30] batch_idx:8 loss=0.28698 accuracy=0.74644
+[2020-12-19 17:11:01,083][mhs_91.971.py][line:104][INFO] Epoch:[30/30] batch_idx:8 loss=0.25165 accuracy=0.73504
+[2020-12-19 17:11:05,932][mhs_91.971.py][line:155][INFO] Until now, max accuracy:0.91727
+[2020-12-19 17:11:06,013][mhs_91.971.py][line:173][INFO] finetune start training!
+[2020-12-19 17:11:38,724][mhs_91.971.py][line:227][INFO] Epoch:[1/30] batch_idx:5 loss=0.41603 accuracy=0.93917
+[2020-12-19 17:11:38,725][mhs_91.971.py][line:232][INFO] acc:0.93917 save model......
+[2020-12-19 17:11:44,982][mhs_91.971.py][line:227][INFO] Epoch:[2/30] batch_idx:5 loss=0.08672 accuracy=0.93674
+[2020-12-19 17:11:50,293][mhs_91.971.py][line:227][INFO] Epoch:[3/30] batch_idx:5 loss=0.05975 accuracy=0.95377
+[2020-12-19 17:11:50,293][mhs_91.971.py][line:232][INFO] acc:0.95377 save model......
+[2020-12-19 17:11:56,373][mhs_91.971.py][line:227][INFO] Epoch:[4/30] batch_idx:5 loss=0.04327 accuracy=0.93917
+[2020-12-19 17:12:01,729][mhs_91.971.py][line:227][INFO] Epoch:[5/30] batch_idx:5 loss=0.03318 accuracy=0.94404
+[2020-12-19 17:12:07,089][mhs_91.971.py][line:227][INFO] Epoch:[6/30] batch_idx:5 loss=0.01211 accuracy=0.93674
+[2020-12-19 17:12:12,369][mhs_91.971.py][line:227][INFO] Epoch:[7/30] batch_idx:5 loss=0.00655 accuracy=0.94161
+[2020-12-19 17:12:17,789][mhs_91.971.py][line:227][INFO] Epoch:[8/30] batch_idx:5 loss=0.00272 accuracy=0.94404
+[2020-12-19 17:12:23,051][mhs_91.971.py][line:227][INFO] Epoch:[9/30] batch_idx:5 loss=0.00630 accuracy=0.94404
+[2020-12-19 17:12:28,533][mhs_91.971.py][line:227][INFO] Epoch:[10/30] batch_idx:5 loss=0.01166 accuracy=0.92944
+[2020-12-19 17:12:34,051][mhs_91.971.py][line:227][INFO] Epoch:[11/30] batch_idx:5 loss=0.00479 accuracy=0.93917
+[2020-12-19 17:12:39,371][mhs_91.971.py][line:227][INFO] Epoch:[12/30] batch_idx:5 loss=0.00275 accuracy=0.94161
+[2020-12-19 17:12:44,595][mhs_91.971.py][line:227][INFO] Epoch:[13/30] batch_idx:5 loss=0.01554 accuracy=0.93187
+[2020-12-19 17:12:49,952][mhs_91.971.py][line:227][INFO] Epoch:[14/30] batch_idx:5 loss=0.01105 accuracy=0.92701
+[2020-12-19 17:12:55,237][mhs_91.971.py][line:227][INFO] Epoch:[15/30] batch_idx:5 loss=0.00455 accuracy=0.92944
+[2020-12-19 17:13:00,511][mhs_91.971.py][line:227][INFO] Epoch:[16/30] batch_idx:5 loss=0.00527 accuracy=0.93674
+[2020-12-19 17:13:06,133][mhs_91.971.py][line:227][INFO] Epoch:[17/30] batch_idx:5 loss=0.00391 accuracy=0.93674
+[2020-12-19 17:13:11,580][mhs_91.971.py][line:227][INFO] Epoch:[18/30] batch_idx:5 loss=0.00341 accuracy=0.94161
+[2020-12-19 17:13:16,917][mhs_91.971.py][line:227][INFO] Epoch:[19/30] batch_idx:5 loss=0.00796 accuracy=0.94404
+[2020-12-19 17:13:22,103][mhs_91.971.py][line:227][INFO] Epoch:[20/30] batch_idx:5 loss=0.00495 accuracy=0.93674
+[2020-12-19 17:13:27,517][mhs_91.971.py][line:227][INFO] Epoch:[21/30] batch_idx:5 loss=0.00414 accuracy=0.92214
+[2020-12-19 17:13:33,131][mhs_91.971.py][line:227][INFO] Epoch:[22/30] batch_idx:5 loss=0.00479 accuracy=0.92944
+[2020-12-19 17:13:38,600][mhs_91.971.py][line:227][INFO] Epoch:[23/30] batch_idx:5 loss=0.00711 accuracy=0.92214
+[2020-12-19 17:13:43,908][mhs_91.971.py][line:227][INFO] Epoch:[24/30] batch_idx:5 loss=0.01019 accuracy=0.90024
+[2020-12-19 17:13:49,287][mhs_91.971.py][line:227][INFO] Epoch:[25/30] batch_idx:5 loss=0.00833 accuracy=0.91971
+[2020-12-19 17:13:54,703][mhs_91.971.py][line:227][INFO] Epoch:[26/30] batch_idx:5 loss=0.00638 accuracy=0.92944
+[2020-12-19 17:14:00,207][mhs_91.971.py][line:227][INFO] Epoch:[27/30] batch_idx:5 loss=0.00688 accuracy=0.92457
+[2020-12-19 17:14:05,639][mhs_91.971.py][line:227][INFO] Epoch:[28/30] batch_idx:5 loss=0.02123 accuracy=0.92701
+[2020-12-19 17:14:11,066][mhs_91.971.py][line:227][INFO] Epoch:[29/30] batch_idx:5 loss=0.02832 accuracy=0.93674
+[2020-12-19 17:14:16,405][mhs_91.971.py][line:227][INFO] Epoch:[30/30] batch_idx:5 loss=0.01968 accuracy=0.92701

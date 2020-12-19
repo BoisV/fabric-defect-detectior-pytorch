@@ -1,16 +1,16 @@
 import os
 import ssl
-from types import prepare_class
 
 import torch
 import torchvision
 from torch import cuda, nn, optim
 from torch.utils.data.dataloader import DataLoader
 from torchvision import transforms
+from torchvision import models
 from lib.utils.util import get_logger
-from lib.utils.data_split import createDIYDataset
-from lib.utils.dataset import FabricDataset
 
+from lib.utils.dataset import FabricDataset
+from lib.utils.dataset import FabricDataset
 ssl._create_default_https_context = ssl._create_unverified_context
 device = torch.device('cuda:0' if cuda.is_available() else 'cpu')
 
@@ -27,9 +27,25 @@ class fabric(nn.Module):
     def __init__(self, num_classes=15):
         super(fabric, self).__init__()
         x = torchvision.models.AlexNet(num_classes)
-        self.feature = x.features
-        self.pool = x.avgpool
-        self.classifier = x.classifier
+        self.feature=nn.Sequential(
+            nn.Conv2d(3, 64, kernel_size=7, stride=2, padding=0), #change kernel_size form 11 to 7, stride from 4 to 2, padding from 2 to 0
+            nn.ReLU(inplace=True),
+            nn.MaxPool2d(kernel_size=3, stride=2),
+            nn.Conv2d(64, 256, kernel_size=5, padding=2),
+            nn.ReLU(inplace=True),
+            nn.MaxPool2d(kernel_size=3, stride=2),
+            nn.Conv2d(256, 512, kernel_size=3, padding=1),
+            nn.ReLU(inplace=True),
+            nn.MaxPool2d(kernel_size=3, stride=2),   #add a MaxPooling
+            nn.Conv2d(512, 256, kernel_size=3, padding=1),
+            nn.ReLU(inplace=True)
+            
+        )
+        self.pool=nn.Sequential(
+            nn.MaxPool2d(kernel_size=3, stride=1),    #change stride from 2 to 1
+            nn.AdaptiveAvgPool2d((6, 6))
+        )
+        self.classifier=x.classifier
 
     def forward(self, xx, xt):
         y1 = self.feature(xx)
@@ -38,6 +54,7 @@ class fabric(nn.Module):
         ytemp1 = self.pool(ytemp1)
         pred = self.classifier(torch.flatten(y1-ytemp1, 1))
         return pred
+
 
 
 def pretrain(trainRoot='./data/X_fabric_data/tr/', testRoot='./data/X_fabric_data/te/', classes=[1]):
@@ -218,7 +235,7 @@ def finetune(feature, trainRoot='./data/DIY_fabric_data/tr/', testRoot='./data/D
                 logger.info('acc:{:.5f} save model......'.format(acc))
                 state = {'feature': feature.state_dict(
                 ), 'classifier': classifier.state_dict(), 'maxAccuracy': acc}
-                torch.save(state, os.path.join('./models', 'model.pt'))
+                torch.save(state, os.path.join('./models','{:.2f}model_weights.pth').format(acc))
 
 
 if __name__ == "__main__":
@@ -229,18 +246,18 @@ if __name__ == "__main__":
                         14, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]  # 预训练数据包含类别标签
     finetune_classes = [1, 2, 14]  # 调优数据包含类别标签
     ratio = 4.0/7  # 训练集所占比例
+    
+    # # 生成预训练数据集
+    # createDIYDataset(root=os.path.join('.', data_root),
+    #                  save=os.path.join('.',     pretrain_data_root),
+    #                  classes=pretrain_classes,
+    #                  ratio=ratio)
 
-    # 生成预训练数据集
-    createDIYDataset(root=os.path.join('.', data_root),
-                     save=os.path.join('.',     pretrain_data_root),
-                     classes=pretrain_classes,
-                     ratio=ratio)
-
-    # 生成调优数据集
-    createDIYDataset(root=os.path.join('.', data_root),
-                     save=os.path.join('.', finetune_data_root),
-                     classes=finetune_classes,
-                     ratio=ratio)
+    # # 生成调优数据集
+    # createDIYDataset(root=os.path.join('.', data_root),
+    #                  save=os.path.join('.', finetune_data_root),
+    #                  classes=finetune_classes,
+    #                  ratio=ratio)
 
     # 预训练
     feature = pretrain(trainRoot=os.path.join(pretrain_data_root, 'train'),
