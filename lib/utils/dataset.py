@@ -13,7 +13,7 @@ class FabricDataset(VisionDataset):
 
     def __init__(self,
                  root: str,
-                 train: bool=True,
+                 train: bool = True,
                  transform: Optional[Callable] = None,
                  target_trainsform: Optional[Callable] = None
                  ) -> None:
@@ -52,16 +52,17 @@ class FabricDataset(VisionDataset):
         # xx、xt分别是瑕疵图片和无瑕疵原图的瑕疵区域片段
         xx = trgt_img.crop((x0, y0, x1, y1))
         xt = temp_img.crop((x0, y0, x1, y1))
-        
-        xx = self.transform(xx)
-        xt = self.transform(xt)
+
+        if self.transform is not None:
+            xx = self.transform(xx)
+            xt = self.transform(xt)
 
         xx = torchvision.transforms.Resize((224, 224))(xx)
         xt = torchvision.transforms.Resize((224, 224))(xt)
 
         xx = torchvision.transforms.ToTensor()(xx)
         xt = torchvision.transforms.ToTensor()(xt)
-        return xx, xt, label  
+        return xx, xt, label
 
     def __len__(self) -> int:
         return len(self.trgt_images_list)
