@@ -1,6 +1,10 @@
 # fabric-defect-detectior-pytorch
 ## 环境需求
-pytorch 1.17 pillow 8.0.1
+numpy=3.6
+Pillow=8.0.1
+torch==1.7.0
+torchvision==0.8.1
+python=3.6
 
 
 文件目录结构如下
